@@ -1,0 +1,176 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f12711;
+  background: linear-gradient(to right, #33ef55, #0ed783);
+  color: black;
+  background-image: url(trator.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+body:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  opacity: .7;
+  z-index: -1;
+  border: 2px solid rgba(255, 254, 254, 0.2);
+  backdrop-filter: blur(8px);
+  /* background: #adb2b3; */
+  /* background: linear-gradient(to right, #2bae07, #209708); color: black; */
+}
+
+.header {
+
+
+  margin-top: 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: rgb(5, 112, 41);
+  height: 800px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px 2px #ffffffb4;
+  width: 75%;
+  margin-bottom: 20px;
+  border: 2px solid white;
+
+}
+
+.logo {
+  width: 65%;
+  padding-right: 200px;
+  margin-left: 200px;
+  margin-right: -80px;
+  margin-top: 170px;
+
+}
+
+
+.linha {
+
+  margin-top: 80px;
+  width: 2px;
+  height: 84%;
+  margin-right: 100px;
+  background-color: rgb(255, 255, 255);
+
+
+}
+
+
+
+
+
+.login-container {
+  width: 420px;
+  backdrop-filter: blur(10px);
+  color: #2d2323;
+  border-radius: 10px;
+  padding: 30px 40px;
+  float: left;
+  margin-right: 100px;
+  margin-top: 8px;
+  /* border: 2px solid #f1f1f1; */
+  
+}
+
+h2 {
+
+  margin-bottom: 3%;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+
+}
+
+.fonte {
+  font-size: 18px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff;
+  padding-bottom: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+
+
+.login-form input {
+  width: 100%;
+  padding: 9px;
+  margin-bottom: 20px;
+  border: 2px solid #5f5b5b;
+  border-radius: 3px;
+  color: #000000;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+
+
+.login-form input:hover {
+  transform: scale(1.08);
+  transition: transform 0.4s ease;
+  border: 2px solid #197c17;
+
+}
+
+.login-form input::placeholder {
+  color: rgb(4, 72, 6);
+}
+
+.input_data{
+
+}
+
+
+.login-form button {
+  background-color: #038020;
+  color: #f1f1f1;
+  padding: 10px 20px;
+  border: 1px solid white;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.login-form button:hover {
+  background: linear-gradient(90deg, #12f295, #68ec34);
+  color: #000;
+  transform: scale(1.05);
+
+}
+
+
+
+
+
+.se-cadastre {
+  color: #ffffff;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+

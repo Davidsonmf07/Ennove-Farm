@@ -1,0 +1,196 @@
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f12711;
+    background: linear-gradient(to right, #33ef55, #0ed783); 
+    color: black;
+    background-image: url(agrinho.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative; 
+  }
+
+  body:after {
+    position: absolute;
+    content: ""; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    opacity: .7;
+    z-index: -1;
+    border: 2px solid rgba(255, 254, 254, 0.2);
+    backdrop-filter: blur(8px);
+    /* background: #adb2b3; */ 
+    /* background: linear-gradient(to right, #2bae07, #209708); color: black; */
+  }
+
+  .header{
+
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: white;
+    height: 500px;
+    border-radius: 15px;
+    box-shadow: 0 0 4px 2px #56d031b4 ;
+
+    /* background-color: ; */
+  }
+
+  /* .imagem{
+
+    background-color: green;
+
+    
+
+  } */
+
+  .logo{
+
+    /* margin-right: 200px; */
+    padding-right: 200px;
+    padding-left: 100px;
+    margin-top: 40px;
+
+  }
+
+
+  .linha {
+
+    margin-top: 75px;
+    width: 2px;
+    height: 75%;
+    margin-right: 110px;
+    background-color: rgb(23, 215, 49);
+
+
+  }
+
+
+
+
+
+  .login-container {
+    width: 420px;
+    /* background: rgba(203, 198, 198, 0.2); */
+    /* background-color: #68ec34; */
+    border: 2px solid rgba(255, 254, 254, 0.2);
+    backdrop-filter: blur(10px);
+    color: #2d2323;
+    border-radius: 10px;
+    padding: 30px 40px;
+    float: left;
+    margin-right: 100px;
+    margin-top: 25px;
+    
+  }
+
+  h2 {
+    
+    margin-bottom: 3%;
+    color: #209708;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .fonte{
+    font-size: 18px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  }
+
+  .login-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #209708;
+    /* padding-top: 7px; */
+    padding-bottom: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+  }
+
+
+
+  .login-form input {
+    width: 100%;
+    padding: 9px;
+    margin-bottom: 20px;
+    border: 2px groove #10d409;
+    border-radius: 3px;
+    color: #2bae07;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  }
+
+
+
+  .login-form input:hover {
+    transform: scale(1.08);
+    transition: transform 0.4s ease;
+    border: 2px solid #197c17;
+
+  }
+
+  .login-form input::placeholder{
+    color: rgb(16, 187, 22);
+    /* background-color: gray; */
+  }
+
+
+  .login-form button {
+    background-color: #038020;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  
+  .login-form button:hover {
+    background: linear-gradient(to right, #12f295, #68ec34);
+    color: #000;
+    transform: scale(1.05);
+
+  }
+
+
+  .input-senha {
+    background-image: url(projeto_logo.jpg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center;
+    padding-right: 30px;
+  }
+
+
+  .se-cadastre{
+    color: #0aa619;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  }
+
+
+  /* .esquece-senha{
+
+
+    margin: 30px;
+  } */
+
+  .login-form a{
+    margin: 38px;
+  }
+  

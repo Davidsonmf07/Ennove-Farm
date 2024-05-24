@@ -1,3 +1,2 @@
 # Ennove-Farm
 
-# ROUTES - CONTROLLER - MODEL (INSERIR)

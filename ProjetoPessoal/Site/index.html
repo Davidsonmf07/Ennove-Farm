@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ENNOVE FARM</title>
+
+
+    <link rel="stylesheet" href="css/css_index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+</head>
+
+<body>
+    <div class="header">
+
+        <div class="container">
+
+            <h1 class="titulo"><img src="img/logo2.png" style="width: 23%;" alt=""></h1>
+            <ul class="navbar">
+
+                <li>
+                    <a href="tela_login.html">Login</a>
+                </li>
+                <li>
+                    <a href="telacadastro.html">Cadastro</a>
+                </li>
+
+                <li>
+                    <a href="sobreMim.html">Sobre Mim</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="banner">
+        <div class="quadrante">
+
+            <div class="logo">
+                <h3><img class="imagem_quadrante" src="img/logo2.png" style="width: 17%;" alt=""></h3>
+
+            </div>
+
+            <h2>Plataforma de Gestão para Agricultura Sustentável</h2>
+
+            <p> Descubra um mundo de inovação e sustentabilidade! Explore nossas soluções revolucionárias para uma
+                agricultura mais inteligente e ecologicamente responsável. Junte-se a nós na jornada rumo a um futuro
+                mais verde e próspero. Clique agora para desvendar o potencial da AquaTech e transforme a maneira como
+                vemos a agricultura</p>
+
+            <button class="botao_conhecer">QUERO CONHECER</button>
+
+
+        </div>
+    </div>
+
+    <div class="sobre">
+
+        <div class="metade">
+
+            <h2> <span style="color: rgba(0, 0, 0, 0.38); padding-right: 10px;">Sobre </span> a En<span
+                    style="color: rgba(0, 0, 0, 0.38);">nov</span>e Far
+                <span style="color: rgba(0, 0, 0, 0.38);">m</span>
+            </h2>
+            <!-- <h2>Sobre a Ennove Farm</h2> -->
+
+
+            <p> Nosso foco principal é desenvolver e implementar soluções tecnológicas inovadoras para promover a gestão
+                inteligente e sustentável das operações agrícolas. Nosso objetivo é capacitar os agricultores com
+                ferramentas e insights que lhes permitam aumentar a eficiência, reduzir o desperdício de recursos e
+                minimizar o impacto ambiental de suas atividades, ao mesmo tempo em que promovem a conservação da vida
+                terrestre.</p>
+
+            <p> Uma fonte de informações e comunidade para o agronegócio do século XXI. Nós nos dedicamos a fornecer um
+                espaço onde agricultores de todos os portes possam se reunir, trocar experiências e acessar recursos
+                valiosos para impulsionar o sucesso de suas operações.</p>
+
+        </div>
+
+        <div class="div_imagem">
+
+            <img src="img/imagem_meio.jpg" class="meio" alt="">
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="social">
+
+        <div class="container">
+
+            <div class="boxes">
+
+                <div class="box">
+
+                    <div class="foto_social">
+                        <img class="fot_quadro" src="img/celeiro.png">
+                    </div>
+
+                    <h4 style="padding-top: 15px;">Compromisso e Sustentabilidade</h4>
+
+                    <p>Priorizamos o desenvolvimento e a implementação de soluções tecnológicas que promovam práticas
+                        agrícolas sustentáveis, visando reduzir o impacto ambiental e preservar os recursos naturais
+                        para as futuras gerações.
+                    </p>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="foto_social">
+                        <img class="fot_quadro" src="img/colheita.png">
+                    </div>
+
+                    <h4>Inovação</h4>
+
+                    <p> Buscamos constantemente inovações tecnológicas que impulsionem a eficiência e a produtividade
+                        agrícola, ao mesmo tempo em que nos comprometemos em garantir que essas inovações estejam
+                        alinhadas com os princípios da sustentabilidade e do bem-estar ambiental.</p>
+
+                </div>
+                <div class="box">
+
+                    <div class="foto_social">
+                        <img class="fot_quadro" src="img/fazendeiro.png">
+                    </div>
+
+                    <h4 style="padding-top: 10px;">Colaboração e Parceria</h4>
+
+                    <p>Valorizamos a colaboração com agricultores, especialistas em agricultura sustentável,
+                        instituições de pesquisa e outras partes interessadas para garantir que nossas soluções atendam
+                        às necessidades reais do setor agrícola e contribuam para o avanço da sustentabilidade.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="central">
+
+
+        <div class="simulador" id="simulador">
+
+            <h1 class="titulo_simulador"> <span style="color: green;">Agro</span> Simulador</h1>
+
+
+            <label style=" padding-top: 10px;
+             padding-bottom: 20px;" for="pesticidas"> Quanto você usa de pesticidas (kg/ha):</label>
+            <input type="number" id="input_pesticida"><br><br>
+
+            <label style=" padding-top: 10px;
+           padding-bottom: 20px;" for="cultivo"> Quais as suas práticas de cultivo:</label>
+            <select id="select_cultivo">
+                <option disabled selected value="#">Selecione uma opção</option>
+                <option value="0.3">Convencional</option>
+                <option value="0.6">Orgânico</option>
+                <option value="0.8">Agroflorestal</option>
+            </select>
+            <br><br>
+
+            <label style=" padding-top: 10px;
+           padding-bottom: 20px;" for="culturas">Quanto você rotacione sua cultura de plantio (%):</label>
+            <select id="select_culturas">
+                <option disabled selected value="#">Selecione uma opção</option>
+                <option value="0">Nenhuma</option>
+                <option value="25">Baixa</option>
+                <option value="50">Média</option>
+                <option value="100">Alta</option>
+            </select>
+            <br><br>
+
+            <div class="botao_simular">
+
+                <button onclick="simular()">Simular</button>
+
+            </div>
+
+            <div class="resultado" id="resultado"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+        <div class="container">
+        </div>
+    </div>
+
+    <script>
+        function simular() {
+
+            var inputPesticidas = document.getElementById("input_pesticida").value;
+            var selectCultivo = document.getElementById("select_cultivo").value;
+            var selectCulturas = document.getElementById("select_culturas").value;
+
+            var usoPesticidas = parseFloat(inputPesticidas);
+            var praticasCultivo = parseFloat(selectCultivo);
+            var rotacaoCulturas = parseFloat(selectCulturas);
+
+            var biodiversidade = (usoPesticidas * 0.5) + (praticasCultivo * 0.3) + (rotacaoCulturas * 0.2);
+            var qualidadeSolo = (usoPesticidas * 0.3) + (praticasCultivo * 0.4) + (rotacaoCulturas * 0.3);
+            var saudeEcossistemas = (usoPesticidas * 0.2) + (praticasCultivo * 0.3) + (rotacaoCulturas * 0.5);
+
+            if (biodiversidade <= 50) {
+                resultado.innerHTML += "<p>Nível de biodiversidade preocupante.</p>";
+            } else if (biodiversidade > 50 && biodiversidade <= 80) {
+                resultado.innerHTML += "<p>Nível qualificado de biodiversidade.</p>";
+
+            }
+            else if (biodiversidade > 80) {
+                resultado.innerHTML += "<p>Nível de biodiversidade excelente!</p>";
+            }
+
+            resultado.innerHTML +=
+
+                `<h2>Resultados da Simulação</h2>
+
+<p><strong>Biodiversidade:</strong> O nível de biodiversidade indica a variedade de vida em seu ambiente agrícola. Quanto maior, melhor é o equilíbrio ecológico. Seu valor: ${biodiversidade.toFixed(2)}</p>
+
+<p><strong>Qualidade do Solo:</strong> A qualidade do solo indica a capacidade do solo de sustentar vida vegetal e animal, bem como suas propriedades físicas e químicas. Seu valor: ${qualidadeSolo.toFixed(2)}</p>
+
+<p><strong>Saúde dos Ecossistemas:</strong> A saúde dos ecossistemas indica a capacidade do ambiente de manter seu equilíbrio e funcionar adequadamente. Seu valor: ${saudeEcossistemas.toFixed(2)}</p>`;
+
+        }
+    </script>
+
+
+</body>
+
+</html>
+
+
+
+
+ROUTES - CONTROLLER - MODEL (INSERIR)

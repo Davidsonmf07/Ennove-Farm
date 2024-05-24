@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/tela_cadastro.css">
+  <title>ENNOVE FARM - CADASTRO</title>
+</head>
+
+<body>
+
+  <div class="header">
+
+
+    <div class="imagem">
+
+      <img class="logo" style="float: right;" src="img/logo2.png" alt="">
+
+
+    </div>
+
+    <div class="linha">
+    </div>
+
+
+    <div class="login-container">
+
+      <div class="fonte">
+        <h2 style="margin-bottom: 10%;">CADASTRO</h2>
+      </div>
+
+      <form class="login-form">
+
+        <label class="Nome" for="username">Nome</label>
+        <input class="input_nome" placeholder="Insira seu nome:" type="text" id="inp_usermail" name="usermail" required>
+
+        <label class="e-mail" for="username">E-mail:</label>
+        <input class="input_email" placeholder="Insira seu E-mail:" type="text" id="inp_usermail" name="usermail"
+          required>
+
+        <label for="password">Senha:</label>
+        <input class="input_senha" placeholder="Insira sua senha:" type="password" id="password" name="password"
+          required>
+
+        <label for="telefone">Telefone:</label>
+        <input class="input_telefone" placeholder="Insira seu telefone:" type="number" id="telefone" name="telefone"
+          required>
+
+        <label for="date">Data de Nascimento:</label>
+        <input class="input_data" placeholder="Insira sua data de nascimento:" type="date" id="date" name="date"
+          required>
+
+        <button style="width: 106%; margin-top: 5%; margin-bottom: 7%;" type="button"
+          onclick="verificar()">Entrar</button>
+
+        <a class="se-cadastre" href="tela_login.html">
+          <span class="esquece-senha">Já tem login? Entre aqui!</span>
+        </a>
+
+
+
+
+      </form>
+    </div>
+
+
+
+
+  </div>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+  function verificar() {
+    var inputEmail = inp_usermail.value;
+
+    var indice_arroba = inputEmail.indexOf('@');
+    var indice_ponto = inputEmail.lastIndexOf('.');
+
+    if (indice_arroba < 0 || indice_ponto < 0 || indice_ponto < indice_arroba + 2 || indice_ponto === inputEmail.length - 1) {
+      alert("Por favor, preencha o campo de e-mail corretamente");
+      return false;
+    }
+
+  }
+
+
+
+</script>

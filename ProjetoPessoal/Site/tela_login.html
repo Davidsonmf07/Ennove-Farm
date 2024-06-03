@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/tela_login.css">
+  <link rel="shortcut icon" href="img/projeto_logo.jpg" type="image/x-icon">
+
   <title>ENNOVE - LOGIN</title>
 </head>
 
@@ -12,6 +14,9 @@
 
   <div class="header">
 
+    <a href="index.html">
+      <img src="css/img/gif_teste.gif" style="margin-left: 25px; margin-top: 25px;" alt="">
+    </a>
 
     <div class="imagem">
 
@@ -41,7 +46,7 @@
           required>
         
         <button style="width: 106%; margin-top: 5%; margin-bottom: 5%;" type="button"
-          onclick="verificar()">Entrar</button>
+          onclick="entrar()">Entrar</button>
 
         <a class="se-cadastre" href="telacadastro.html">
           <span class="esquece-senha">Se cadastre aqui!</span>
@@ -68,19 +73,77 @@
 
 <script>
 
-  function verificar() {
-    var inputEmail = inp_usermail.value;
+function entrar() {
+  
+        // aguardar();
 
-    var indice_arroba = inputEmail.indexOf('@');
-    var indice_ponto = inputEmail.lastIndexOf('.');
+        var emailVar = inp_usermail.value;
+        var senhaVar = password.value;
 
-    if (indice_arroba < 0 || indice_ponto < 0 || indice_ponto < indice_arroba + 2 || indice_ponto === inputEmail.length - 1) {
-      alert("Por favor, preencha o campo de e-mail corretamente");
-      return false;
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
     }
 
-  }
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
 
 
+    
 
 </script>

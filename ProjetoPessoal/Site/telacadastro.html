@@ -5,14 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/tela_cadastro.css">
+  <link rel="shortcut icon" href="img/projeto_logo.jpg" type="image/x-icon">
+
   <title>ENNOVE FARM - CADASTRO</title>
 </head>
 
-<body>
+<body onload="listar()">
+
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
+    </div>
+  </div>
 
   <div class="header">
 
-
+    <a href="index.html">
+      <img src="https://img.icons8.com/?size=50&id=73&format=png" style="margin-left: 25px; margin-top: 25px; opacity: 0.9 ; filter: invert(100%);" alt="">
+    </a>
+    
     <div class="imagem">
 
       <img class="logo" style="float: right;" src="img/logo2.png" alt="">
@@ -33,7 +44,7 @@
       <form class="login-form">
 
         <label class="Nome" for="username">Nome</label>
-        <input class="input_nome" placeholder="Insira seu nome:" type="text" id="inp_usermail" name="usermail" required>
+        <input class="input_nome" placeholder="Insira seu nome:" type="text" id="inp_user" name="usermail" required>
 
         <label class="e-mail" for="username">E-mail:</label>
         <input class="input_email" placeholder="Insira seu E-mail:" type="text" id="inp_usermail" name="usermail"
@@ -43,20 +54,25 @@
         <input class="input_senha" placeholder="Insira sua senha:" type="password" id="password" name="password"
           required>
 
-        <label for="telefone">Telefone:</label>
-        <input class="input_telefone" placeholder="Insira seu telefone:" type="number" id="telefone" name="telefone"
+        <label for="Confirmação">Confirmação de senha:</label>
+        <input class="input_telefone" placeholder="Confirme sua senha:" type="password" id="senha_confirma" name="telefone"
           required>
 
-        <label for="date">Data de Nascimento:</label>
-        <input class="input_data" placeholder="Insira sua data de nascimento:" type="date" id="date" name="date"
-          required>
+        <label for="Estado">Informe um estado:</label>
+        <select name="empresas" id="listaEmpresas"  class="select_form">
+            <option selected  class="firts_option" >Selecione seu Estado</option>
+          </select>
 
         <button style="width: 106%; margin-top: 5%; margin-bottom: 7%;" type="button"
-          onclick="verificar()">Entrar</button>
+          onclick="cadastrar()">Entrar</button>
 
         <a class="se-cadastre" href="tela_login.html">
           <span class="esquece-senha">Já tem login? Entre aqui!</span>
         </a>
+
+
+
+        <div id="div_erros_login"></div>
 
 
 
@@ -77,19 +93,94 @@
 
 <script>
 
-  function verificar() {
-    var inputEmail = inp_usermail.value;
+function cadastrar() {
+    // aguardar();
 
-    var indice_arroba = inputEmail.indexOf('@');
-    var indice_ponto = inputEmail.lastIndexOf('.');
+    var nomeVar = inp_user.value;
+    var emailVar = inp_usermail.value;
+    var senhaVar = password.value;
+    var confirmacaoSenhaVar = senha_confirma.value;
+    var empresaVar = listaEmpresas.value
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" ||
+      empresaVar == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Preencha os campos corretamente para prosseguir";
 
-    if (indice_arroba < 0 || indice_ponto < 0 || indice_ponto < indice_arroba + 2 || indice_ponto === inputEmail.length - 1) {
-      alert("Por favor, preencha o campo de e-mail corretamente");
+      // finalizarAguardar();
       return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
     }
 
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        empresaServer: empresaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "tela_login.html";
+          }, "2000");
+
+          limparFormulario();
+          
+          // finalizarAguardar();
+
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+      });
+
+    return false;
   }
 
+  function listar() {
+    fetch("/empresas/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((empresas) => {
+          empresas.forEach((empresa) => {
+            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.Estado}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
 
 
 </script>

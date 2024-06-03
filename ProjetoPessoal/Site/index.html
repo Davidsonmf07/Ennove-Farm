@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="css/css_index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="img/projeto_logo.jpg" type="image/x-icon">
+
 
 </head>
 
@@ -51,10 +53,14 @@
 
             <p> Descubra um mundo de inovação e sustentabilidade! Explore nossas soluções revolucionárias para uma
                 agricultura mais inteligente e ecologicamente responsável. Junte-se a nós na jornada rumo a um futuro
-                mais verde e próspero. Clique agora para desvendar o potencial da AquaTech e transforme a maneira como
+                mais verde e próspero. Clique agora para desvendar o potencial da sua carreira e transforme a maneira como
                 vemos a agricultura</p>
 
-            <button class="botao_conhecer">QUERO CONHECER</button>
+
+            <a href="tela_login.html">
+                <button class="botao_conhecer">QUERO CONHECER</button>
+            </a>
+
 
 
         </div>
@@ -146,15 +152,17 @@
     </div>
 
 
-    <div class="central">
+    <div class="central" style="height: 800px;">
 
 
-        <div class="simulador" id="simulador">
+        <div class="simulador" id="simulador"
+            style="height: 1000px;  display: block; width: 35%; text-align: center; display: flex; justify-content: space-evenly;">
 
-            <h1 class="titulo_simulador"> <span style="color: green;">Agro</span> Simulador</h1>
+            <h1 class="titulo_simulador" style="text-align: center;"> <span style="color: green; ">Simul</span>Agro
+            </h1>
 
 
-            <label style=" padding-top: 10px;
+            <label style=" padding-top: 0px;
              padding-bottom: 20px;" for="pesticidas"> Quanto você usa de pesticidas (kg/ha):</label>
             <input type="number" id="input_pesticida"><br><br>
 
@@ -169,7 +177,7 @@
             <br><br>
 
             <label style=" padding-top: 10px;
-           padding-bottom: 20px;" for="culturas">Quanto você rotacione sua cultura de plantio (%):</label>
+           padding-bottom: 20px;" for="culturas">Quanto você rotaciona sua cultura de plantio (%):</label>
             <select id="select_culturas">
                 <option disabled selected value="#">Selecione uma opção</option>
                 <option value="0">Nenhuma</option>
@@ -179,59 +187,148 @@
             </select>
             <br><br>
 
-            <div class="botao_simular">
+            <div class="botao_simular" style="padding-bottom: 20px;">
 
-                <button onclick="simular()">Simular</button>
+                <button onclick="simular()" style="margin: 0;
+                padding: 0;
+                width: 170px;
+                background-color: green;
+                border: 2px solid rgb(0, 0, 0);
+                color: white;
+                border-radius: 10px;
+                text-align: center;
+                font-size: 16px;
+                padding: 10px 15px;
+                margin-bottom: 100px;
+                cursor: pointer;
+                transition: transform 0.3s ease;">Simular</button>
+
 
             </div>
 
-            <div class="resultado" id="resultado"></div>
+
+
 
         </div>
+
+        <style>
+            .resultado {
+                color: #000000;
+                font-size: 15px;
+                height: 2000px;
+            }
+
+            .simulador h1 {
+
+                padding-top: 25px;
+                padding-bottom: 25px;
+
+            }
+
+            .simulador label {
+                font-weight: bold;
+            }
+        </style>
+
+        <div class="resultado" id="resultado" style="    display: none;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-top: 30px;
+        background-color: #000000;
+        width: 50%;
+        color: white;
+        margin-top: 84px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 700px;
+        max-height: 600px;
+        text-align: center;
+        border-radius: 18px;
+        box-shadow: 2px 2px 20px rgba(255, 255, 255, 0.5);
+        font-family:cursive;
+        font-size: 16px;
+        transition: transform 0.3s ease;">
+        </div>
+
 
     </div>
 
 
     <div class="footer">
-        <div class="container">
+        <div class="container"  >
+
+            <p>bpa</p>
+
         </div>
     </div>
 
     <script>
         function simular() {
 
+            simulador.style.display = "none";
+            resultado.style.display = "block";
             var inputPesticidas = document.getElementById("input_pesticida").value;
             var selectCultivo = document.getElementById("select_cultivo").value;
             var selectCulturas = document.getElementById("select_culturas").value;
 
+            // Convertendo os valores de entrada em números
             var usoPesticidas = parseFloat(inputPesticidas);
             var praticasCultivo = parseFloat(selectCultivo);
             var rotacaoCulturas = parseFloat(selectCulturas);
 
+            // Calculando os índices de biodiversidade, qualidade do solo e saúde dos ecossistemas
             var biodiversidade = (usoPesticidas * 0.5) + (praticasCultivo * 0.3) + (rotacaoCulturas * 0.2);
             var qualidadeSolo = (usoPesticidas * 0.3) + (praticasCultivo * 0.4) + (rotacaoCulturas * 0.3);
             var saudeEcossistemas = (usoPesticidas * 0.2) + (praticasCultivo * 0.3) + (rotacaoCulturas * 0.5);
 
+            // Adicionando explicações e interpretações detalhadas dos resultados
             if (biodiversidade <= 50) {
-                resultado.innerHTML += "<p>Nível de biodiversidade preocupante.</p>";
+                resultado.innerHTML += `<b style="font-size:20px; color:red">Nível de biodiversidade preocupante.</b> <span  style="color:red"> A baixa biodiversidade pode indicar um ambiente agrícola desequilibrado, com pouca variedade de vida, o que pode levar a problemas como pragas e doenças mais prevalentes e menor resiliência às mudanças ambientais. </span>`;
             } else if (biodiversidade > 50 && biodiversidade <= 80) {
-                resultado.innerHTML += "<p>Nível qualificado de biodiversidade.</p>";
-
-            }
-            else if (biodiversidade > 80) {
-                resultado.innerHTML += "<p>Nível de biodiversidade excelente!</p>";
+                resultado.innerHTML += `<b style="font-size:20px; color:yellow" >Nível qualificado de biodiversidade.</b> <span style="color:yellow"> Um nível de biodiversidade moderado sugere um ambiente agrícola com alguma variedade de vida, mas ainda pode haver espaço para melhorias para promover um equilíbrio ecológico mais robusto. </span>`;
+            } else if (biodiversidade > 80) {
+                resultado.innerHTML += `<b style="font-size:20px; color:green">Nível de biodiversidade excelente!</b> <span style="color:green"> Um alto nível de biodiversidade indica um ambiente agrícola saudável e equilibrado, com uma ampla variedade de vida que pode contribuir para a resistência a pragas e doenças, a fertilidade do solo e a sustentabilidade a longo prazo. </span>`;
             }
 
+            // Mostrando os resultados e suas explicações
             resultado.innerHTML +=
-
                 `<h2>Resultados da Simulação</h2>
+    <p><strong>Biodiversidade:</strong> O nível de biodiversidade indica a variedade de vida em seu ambiente agrícola. Quanto maior, melhor é o equilíbrio ecológico. Este valor é calculado com base na quantidade de pesticidas utilizados, nas práticas de cultivo e na rotação de culturas. Quanto maior o valor, mais biodiverso é o ambiente agrícola. Seu valor: ${biodiversidade.toFixed(2)}</p><br>
+    
+    <p><strong>Qualidade do Solo:</strong> A qualidade do solo indica a capacidade do solo de sustentar vida vegetal e animal, bem como suas propriedades físicas e químicas. Este valor é influenciado pela quantidade de pesticidas utilizados, pelas práticas de cultivo e pela rotação de culturas. Quanto maior o valor, melhor é a qualidade do solo. Seu valor: ${qualidadeSolo.toFixed(2)}</p><br>
+    
+    <p><strong>Saúde dos Ecossistemas:</strong> A saúde dos ecossistemas indica a capacidade do ambiente de manter seu equilíbrio e funcionar adequadamente. Este valor é determinado pela interação entre os pesticidas utilizados, as práticas de cultivo e a rotação de culturas. Quanto maior o valor, mais saudáveis são os ecossistemas agrícolas. Seu valor: ${saudeEcossistemas.toFixed(2)}</p><br><br>
 
-<p><strong>Biodiversidade:</strong> O nível de biodiversidade indica a variedade de vida em seu ambiente agrícola. Quanto maior, melhor é o equilíbrio ecológico. Seu valor: ${biodiversidade.toFixed(2)}</p>
 
-<p><strong>Qualidade do Solo:</strong> A qualidade do solo indica a capacidade do solo de sustentar vida vegetal e animal, bem como suas propriedades físicas e químicas. Seu valor: ${qualidadeSolo.toFixed(2)}</p>
 
-<p><strong>Saúde dos Ecossistemas:</strong> A saúde dos ecossistemas indica a capacidade do ambiente de manter seu equilíbrio e funcionar adequadamente. Seu valor: ${saudeEcossistemas.toFixed(2)}</p>`;
 
+<div class="botao_simular" style="padding-bottom: 20px;">
+
+<button onclick="retornar()" style="margin: 0;
+padding: 0;
+width: 170px;
+background-color: yellow;
+border: 2px solid rgb(0, 0, 0);
+color: white;
+border-radius: 10px;
+text-align: center;
+font-size: 16px;
+padding: 10px 15px;
+margin-bottom: 100px;
+cursor: pointer;
+transition: transform 0.3s ease;">Retornar</button>
+
+
+
+`;
+
+        }
+
+
+        function retornar() {
+            simulador.style.display = "block";
+            resultado.style.display = "none";
         }
     </script>
 
@@ -243,4 +340,4 @@
 
 
 
-ROUTES - CONTROLLER - MODEL (INSERIR)
+<!-- ROUTES - CONTROLLER - MODEL (INSERIR) -->
